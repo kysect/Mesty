@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34205.153
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.Core", "Mesty.Core\Mesty.Core.csproj", "{F73E3646-070E-4FCE-9D12-9C2B6EB7A3C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.Interpreter", "Mesty.Interpreter\Mesty.Interpreter.csproj", "{7689D402-A94E-480E-B705-25D4B5C62309}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.Playground", "Mesty.Playground\Mesty.Playground.csproj", "{7E5FB64E-3DEC-477B-B8B5-5D34031B7072}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.SourceCodeDeclaration.Abstractions", "Mesty.SourceCodeDeclaration.Abstractions\Mesty.SourceCodeDeclaration.Abstractions.csproj", "{C2EDBE51-BA95-40A6-8B1A-C7653D196F0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.SourceCodeDeclaration.RoslynParser", "Mesty.SourceCodeDeclaration.RoslynParser\Mesty.SourceCodeDeclaration.RoslynParser.csproj", "{84CDD99C-1578-4428-9096-D32C8907D077}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesty.Tests", "Mesty.Tests\Mesty.Tests.csproj", "{8D85B125-AE53-4494-BB8D-E67489581FCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F73E3646-070E-4FCE-9D12-9C2B6EB7A3C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73E3646-070E-4FCE-9D12-9C2B6EB7A3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73E3646-070E-4FCE-9D12-9C2B6EB7A3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73E3646-070E-4FCE-9D12-9C2B6EB7A3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7689D402-A94E-480E-B705-25D4B5C62309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7689D402-A94E-480E-B705-25D4B5C62309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7689D402-A94E-480E-B705-25D4B5C62309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7689D402-A94E-480E-B705-25D4B5C62309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5FB64E-3DEC-477B-B8B5-5D34031B7072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5FB64E-3DEC-477B-B8B5-5D34031B7072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5FB64E-3DEC-477B-B8B5-5D34031B7072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5FB64E-3DEC-477B-B8B5-5D34031B7072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2EDBE51-BA95-40A6-8B1A-C7653D196F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2EDBE51-BA95-40A6-8B1A-C7653D196F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2EDBE51-BA95-40A6-8B1A-C7653D196F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2EDBE51-BA95-40A6-8B1A-C7653D196F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CDD99C-1578-4428-9096-D32C8907D077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CDD99C-1578-4428-9096-D32C8907D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CDD99C-1578-4428-9096-D32C8907D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CDD99C-1578-4428-9096-D32C8907D077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D85B125-AE53-4494-BB8D-E67489581FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D85B125-AE53-4494-BB8D-E67489581FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D85B125-AE53-4494-BB8D-E67489581FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D85B125-AE53-4494-BB8D-E67489581FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF2CB1B5-3F61-4C75-9F01-15188732B51E}
+	EndGlobalSection
+EndGlobal

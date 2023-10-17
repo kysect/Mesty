@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <NoWarn>$(NoWarn);CS1591;IDE0055</NoWarn>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    </PropertyGroup>
+</Project>

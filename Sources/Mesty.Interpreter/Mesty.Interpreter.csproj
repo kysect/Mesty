@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mesty.Core\Mesty.Core.csproj" />
+    <ProjectReference Include="..\Mesty.SourceCodeDeclaration.Abstractions\Mesty.SourceCodeDeclaration.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

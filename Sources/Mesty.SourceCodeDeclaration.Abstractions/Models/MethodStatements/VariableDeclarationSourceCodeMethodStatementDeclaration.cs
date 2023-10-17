@@ -1,0 +1,5 @@
+﻿using Mesty.SourceCodeDeclaration.Abstractions.Models.Variables;
+
+namespace Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
+
+public record VariableDeclarationSourceCodeMethodStatementDeclaration(ISourceCodeVariableDeclaration Variable) : ISourceCodeMethodStatementDeclaration;

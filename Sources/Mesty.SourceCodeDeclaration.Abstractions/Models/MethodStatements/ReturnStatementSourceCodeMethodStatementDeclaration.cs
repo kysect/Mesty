@@ -1,0 +1,3 @@
+﻿namespace Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
+
+public record ReturnStatementSourceCodeMethodStatementDeclaration : ISourceCodeMethodStatementDeclaration;

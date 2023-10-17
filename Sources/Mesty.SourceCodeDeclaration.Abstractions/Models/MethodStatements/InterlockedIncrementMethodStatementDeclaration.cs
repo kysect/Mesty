@@ -1,0 +1,5 @@
+﻿namespace Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
+
+public record InterlockedIncrementMethodStatementDeclaration(string VariableName, string ResultVariableName) : ISourceCodeMethodStatementDeclaration;
+public record InterlockedReadMethodStatementDeclaration(string VariableName, string ResultVariableName) : ISourceCodeMethodStatementDeclaration;
+public record InterlockedCompareExchangeMethodStatementDeclaration(string Location, string Value, string Comparand, string ResultVariableName) : ISourceCodeMethodStatementDeclaration;
