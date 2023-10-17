@@ -1,4 +1,5 @@
-﻿using Mesty.Core;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.Core;
 using Mesty.SourceCodeDeclaration.Abstractions.Contracts;
 using Mesty.SourceCodeDeclaration.Abstractions.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Methods;
@@ -25,6 +26,8 @@ public class RoslynSourceCodeClassDeclarationParser : ISourceCodeClassDeclaratio
 
     public SourceCodeClassDeclaration Parse(string sourceCode)
     {
+        sourceCode.ThrowIfNull();
+
         _logger.LogInformation("Start parsing source code string with length {length}", sourceCode.Length);
 
         SyntaxTree tree = CSharpSyntaxTree.ParseText(sourceCode);

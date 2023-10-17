@@ -1,4 +1,5 @@
-﻿using Mesty.Core;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.Core;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
 using Mesty.SourceCodeDeclaration.RoslynParser.Tools;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -32,6 +33,8 @@ public class WellKnownMethodParser
 
     public bool TryParseInterlockedIncrement(InvocationExpressionSyntax invocationExpressionSyntax, string? resultVariable, out ISourceCodeMethodStatementDeclaration? result)
     {
+        invocationExpressionSyntax.ThrowIfNull();
+
         _logger.LogInformation("Parse method invocation as Interlock.Increment");
         if (invocationExpressionSyntax.ArgumentList.Arguments.Count != 1)
             throw new MestyException("Interlock.Increment must has one argument.");
@@ -50,6 +53,8 @@ public class WellKnownMethodParser
 
     public bool TryParseInterlockedRead(InvocationExpressionSyntax invocationExpressionSyntax, string? resultVariable, out ISourceCodeMethodStatementDeclaration result)
     {
+        invocationExpressionSyntax.ThrowIfNull();
+
         _logger.LogInformation("Parse method invocation as Interlock.Read");
         if (invocationExpressionSyntax.ArgumentList.Arguments.Count != 1)
             throw new MestyException("Interlock.Read must has one argument.");
@@ -68,6 +73,8 @@ public class WellKnownMethodParser
 
     public bool TryParseInterlockedCompareExchange(InvocationExpressionSyntax invocationExpressionSyntax, string? resultVariable, out ISourceCodeMethodStatementDeclaration result)
     {
+        invocationExpressionSyntax.ThrowIfNull();
+
         _logger.LogInformation("Parse method invocation as Interlock.CompareExchange");
         if (invocationExpressionSyntax.ArgumentList.Arguments.Count != 3)
             throw new MestyException("Interlock.CompareExchange must has 3 argument.");

@@ -1,4 +1,5 @@
-﻿using Mesty.Core;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.Core;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -12,6 +13,8 @@ public class VariableDeclarationParser
 
     public VariableDescriptor Parse(VariableDeclarationSyntax variableDeclaration)
     {
+        variableDeclaration.ThrowIfNull();
+
         if (variableDeclaration.Variables.Count != 1)
             throw new MestyException("Field declaration with multiple values is not supported.");
 

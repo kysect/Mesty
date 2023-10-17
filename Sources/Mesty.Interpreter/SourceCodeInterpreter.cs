@@ -1,4 +1,5 @@
-﻿using Mesty.Interpreter.Models;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.Interpreter.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models;
 using Microsoft.Extensions.Logging;
 
@@ -17,6 +18,9 @@ public class SourceCodeInterpreter : ISourceCodeInterpreter
 
     public SourceCodeExecutionContext Execute(SourceCodeClassDeclaration declaration, SourceCodeExecutionMethodStatementPointer startPointer)
     {
+        declaration.ThrowIfNull();
+        startPointer.ThrowIfNull();
+
         var executionInterpretingContext = new SourceCodeExecutionContext(
             declaration,
             new List<SourceCodeExecutionThreadContext>(),
@@ -39,6 +43,9 @@ public class SourceCodeInterpreter : ISourceCodeInterpreter
 
     public SourceCodeExecutionContext Execute(SourceCodeClassDeclaration declaration, IReadOnlyList<SourceCodeExecutionMethodStatementPointer> startPointers)
     {
+        declaration.ThrowIfNull();
+        startPointers.ThrowIfNull();
+
         var executionInterpretingContext = new SourceCodeExecutionContext(
             declaration,
             new List<SourceCodeExecutionThreadContext>(),

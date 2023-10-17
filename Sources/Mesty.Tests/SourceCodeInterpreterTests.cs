@@ -1,4 +1,5 @@
-﻿using Kysect.CommonLib.DependencyInjection;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Kysect.CommonLib.DependencyInjection;
 using Mesty.Interpreter;
 using Mesty.Interpreter.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Contracts;
@@ -124,6 +125,8 @@ public class SourceCodeExecutionContextPresenter
 {
     public string ConvertToString(IReadOnlyList<SourceCodeExecutionContext> sourceCodeExecutionContexts)
     {
+        sourceCodeExecutionContexts.ThrowIfNull();
+
         var stringBuilder = new StringBuilder();
         for (int i = 0; i < sourceCodeExecutionContexts.Count; i++)
         {
@@ -136,6 +139,8 @@ public class SourceCodeExecutionContextPresenter
 
     public string ConvertToString(SourceCodeExecutionContext sourceCodeExecutionContext)
     {
+        sourceCodeExecutionContext.ThrowIfNull();
+
         var stringBuilder = new StringBuilder();
 
         stringBuilder.AppendLine("\tGlobal variables:");

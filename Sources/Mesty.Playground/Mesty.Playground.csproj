@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Kysect.CommonLib.DependencyInjection" />
+    <PackageReference Include="Kysect.Editorconfig" />
   </ItemGroup>
 
   <ItemGroup>

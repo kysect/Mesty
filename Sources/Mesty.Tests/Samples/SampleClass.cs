@@ -13,7 +13,7 @@
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable", Justification = "Test class for analysis")]
 public class SampleClass
 {
-    private long _setCount = 0;
+    private long _setCount;
     private readonly AutoResetEvent _notEmptyEvent = new(false);
 
     public void Set()

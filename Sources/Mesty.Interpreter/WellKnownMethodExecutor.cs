@@ -1,4 +1,5 @@
-﻿using Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Variables;
 using Microsoft.Extensions.Logging;
 
@@ -18,6 +19,10 @@ public class WellKnownMethodExecutor
         ISourceCodeVariableDeclaration variable,
         OtherMethodInvocationStatementDeclaration otherMethodInvocationStatement)
     {
+        threadPointer.ThrowIfNull();
+        variable.ThrowIfNull();
+        otherMethodInvocationStatement.ThrowIfNull();
+
         switch (variable)
         {
             case AutoResetEventSourceCodeVariableDeclaration autoResetEvent:
@@ -28,6 +33,9 @@ public class WellKnownMethodExecutor
                     return threadPointer;
                 }
                 break;
+
+            default:
+                break;
         }
 
         throw new NotImplementedException($"OtherMethodInvocationStatementDeclaration is not supported. Statement: {otherMethodInvocationStatement}");
@@ -35,6 +43,9 @@ public class WellKnownMethodExecutor
 
     public SourceCodeExecutionThreadPointer ProcessInterlockIncrement(SourceCodeExecutionThreadPointer threadPointer, InterlockedIncrementMethodStatementDeclaration interlockedIncrementMethodStatement)
     {
+        threadPointer.ThrowIfNull();
+        interlockedIncrementMethodStatement.ThrowIfNull();
+
         ISourceCodeVariableDeclaration oldValue = threadPointer.GetLocalOrGlobalVariable(interlockedIncrementMethodStatement.VariableName);
         ISourceCodeVariableDeclaration resultValue = IncrementValue(oldValue);
         threadPointer = threadPointer.SetLocalOrGlobalVariable(interlockedIncrementMethodStatement.VariableName, resultValue);
@@ -46,6 +57,9 @@ public class WellKnownMethodExecutor
 
     public SourceCodeExecutionThreadPointer ProcessInterlockRead(SourceCodeExecutionThreadPointer threadPointer, InterlockedReadMethodStatementDeclaration interlockedReadMethodStatement)
     {
+        threadPointer.ThrowIfNull();
+        interlockedReadMethodStatement.ThrowIfNull();
+
         _logger.LogInformation("Interlock read value from {variableName}", interlockedReadMethodStatement.VariableName);
         ISourceCodeVariableDeclaration readVariable = threadPointer.GetLocalOrGlobalVariable(interlockedReadMethodStatement.VariableName);
         threadPointer = threadPointer.SetLocalOrGlobalVariable(interlockedReadMethodStatement.ResultVariableName, readVariable);
@@ -53,8 +67,13 @@ public class WellKnownMethodExecutor
         return threadPointer;
     }
 
-    public SourceCodeExecutionThreadPointer ProcessInterlockCompareExchange(SourceCodeExecutionThreadPointer threadPointer, InterlockedCompareExchangeMethodStatementDeclaration compareExchangeMethodStatement)
+    public SourceCodeExecutionThreadPointer ProcessInterlockCompareExchange(
+        SourceCodeExecutionThreadPointer threadPointer,
+        InterlockedCompareExchangeMethodStatementDeclaration compareExchangeMethodStatement)
     {
+        threadPointer.ThrowIfNull();
+        compareExchangeMethodStatement.ThrowIfNull();
+
         _logger.LogInformation("Interlock CompareExchange from {variableName}", compareExchangeMethodStatement.Location);
 
         ISourceCodeVariableDeclaration locationValue = threadPointer.GetLocalOrGlobalVariable(compareExchangeMethodStatement.Location);

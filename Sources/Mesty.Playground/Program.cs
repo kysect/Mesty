@@ -8,7 +8,7 @@ namespace Mesty.Playground;
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static void Main()
     {
         string code = @"public class SampleClass1
 {

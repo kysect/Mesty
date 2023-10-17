@@ -22,6 +22,8 @@ public class RoslynSourceCodeSyntaxParser
 
     public ExecutionMethod ParseMethodDeclarationSyntax(MethodDeclarationSyntax methodDeclarationSyntax)
     {
+        methodDeclarationSyntax.ThrowIfNull();
+
         string methodName = methodDeclarationSyntax.Identifier.Text;
         if (methodDeclarationSyntax.Body == null)
             throw new MestyException($"Cannot parse method {methodName}. Method does not contains body.");
@@ -111,6 +113,8 @@ public class RoslynSourceCodeSyntaxParser
 
     public IReadOnlyCollection<ISourceCodeMethodStatementDeclaration> ParseIfStatement(IfStatementSyntax ifStatementSyntax)
     {
+        ifStatementSyntax.ThrowIfNull();
+
         (string? left, string? right) = ParseBinaryConditionOperands(ifStatementSyntax.Condition);
 
         // TODO: support expression that is not block
@@ -229,6 +233,8 @@ public class RoslynSourceCodeSyntaxParser
 
     public ISourceCodeVariableDeclaration ConvertToVariableDeclaration(VariableDescriptor variableDescriptor)
     {
+        variableDescriptor.ThrowIfNull();
+
         if (variableDescriptor.Type == "long")
         {
             if (variableDescriptor.Initializer is null)

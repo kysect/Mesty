@@ -1,4 +1,5 @@
-﻿using Mesty.Interpreter.Models;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.Interpreter.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Variables;
 using Microsoft.Extensions.Logging;
@@ -24,11 +25,15 @@ public class StatementExecutor : IStatementExecutor
 
     public bool CanExecute(SourceCodeExecutionThreadPointer threadPointer)
     {
+        threadPointer.ThrowIfNull();
+
         return threadPointer.MethodStack.Count > 0;
     }
 
     public SourceCodeExecutionThreadPointer ExecuteThreadAction(SourceCodeExecutionThreadPointer threadPointer)
     {
+        threadPointer.ThrowIfNull();
+
         IReadOnlyCollection<SourceCodeExecutionMethodStatementPointer> threadStack = threadPointer.MethodStack;
         if (threadStack.Count == 0)
             throw new InvalidOperationException("Thread stack is empty. No method pointers.");

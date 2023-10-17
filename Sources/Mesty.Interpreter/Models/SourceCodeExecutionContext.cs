@@ -1,4 +1,5 @@
-﻿using Mesty.SourceCodeDeclaration.Abstractions.Models;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Mesty.SourceCodeDeclaration.Abstractions.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Methods;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.MethodStatements;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Variables;
@@ -26,6 +27,8 @@ public record SourceCodeExecutionContext(
 
     public SourceCodeExecutionContext UpdateThread(SourceCodeExecutionThreadContext updatedThread)
     {
+        updatedThread.ThrowIfNull();
+
         var threadContexts = ThreadContexts.CloneCollection().ToList();
         SourceCodeExecutionContext newContext = this with { ThreadContexts = threadContexts, Previous = this };
 
