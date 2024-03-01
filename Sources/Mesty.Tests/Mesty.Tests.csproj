@@ -1,21 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>$(NoWarn);CS1591;CA1707</NoWarn>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>$(NoWarn);CS1591;CA1707</NoWarn>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Kysect.CommonLib.DependencyInjection" />
-    <PackageReference Include="Kysect.Editorconfig" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="NUnit" />
     <PackageReference Include="NUnit3TestAdapter" />
@@ -30,11 +20,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Mesty.Interpreter\Mesty.Interpreter.csproj" />
     <ProjectReference Include="..\Mesty.SourceCodeDeclaration.Abstractions\Mesty.SourceCodeDeclaration.Abstractions.csproj" />
     <ProjectReference Include="..\Mesty.SourceCodeDeclaration.RoslynParser\Mesty.SourceCodeDeclaration.RoslynParser.csproj" />
   </ItemGroup>
-
 </Project>

@@ -1,12 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Kysect.CommonLib" />
-    <PackageReference Include="Kysect.Editorconfig" />
   </ItemGroup>
-
 </Project>

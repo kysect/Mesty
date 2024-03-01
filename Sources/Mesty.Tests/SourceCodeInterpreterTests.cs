@@ -1,5 +1,5 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
-using Kysect.CommonLib.DependencyInjection;
+using Kysect.CommonLib.DependencyInjection.Logging;
 using Mesty.Interpreter;
 using Mesty.Interpreter.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Contracts;
@@ -21,8 +21,8 @@ public class SourceCodeInterpreterTests
     public void Setup()
     {
         new ExecutionStatementComparator();
-        _parser = new RoslynSourceCodeClassDeclarationParser(PredefinedLogger.CreateConsoleLogger());
-        _interpreter = new SourceCodeInterpreter(PredefinedLogger.CreateConsoleLogger());
+        _parser = new RoslynSourceCodeClassDeclarationParser(DefaultLoggerConfiguration.CreateConsoleLogger());
+        _interpreter = new SourceCodeInterpreter(DefaultLoggerConfiguration.CreateConsoleLogger());
     }
 
     [Test]

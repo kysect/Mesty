@@ -1,4 +1,4 @@
-using Kysect.CommonLib.DependencyInjection;
+using Kysect.CommonLib.DependencyInjection.Logging;
 using Mesty.SourceCodeDeclaration.Abstractions.Contracts;
 using Mesty.SourceCodeDeclaration.Abstractions.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models.Methods;
@@ -19,7 +19,7 @@ public class SourceCodeContextParserTests
     public void Setup()
     {
         _executionStatementComparator = new ExecutionStatementComparator();
-        _parser = new RoslynSourceCodeClassDeclarationParser(PredefinedLogger.CreateConsoleLogger());
+        _parser = new RoslynSourceCodeClassDeclarationParser(DefaultLoggerConfiguration.CreateConsoleLogger());
     }
 
     [Test]
@@ -35,8 +35,9 @@ public class SourceCodeContextParserTests
 
         Assert.That(sourceCodeDeclaration.TypeName, Is.EqualTo("SampleClass1"));
         Assert.That(sourceCodeDeclaration.MemberVariables.Count, Is.EqualTo(2));
-        Assert.Contains(new SimpleLongSourceCodeVariableDeclaration("_setCount", 0), (System.Collections.ICollection)sourceCodeDeclaration.MemberVariables);
-        Assert.Contains(new AutoResetEventSourceCodeVariableDeclaration("_notEmptyEvent", false), (System.Collections.ICollection)sourceCodeDeclaration.MemberVariables);
+
+        Assert.That(sourceCodeDeclaration.MemberVariables, Has.Member(new SimpleLongSourceCodeVariableDeclaration("_setCount", 0)));
+        Assert.That(sourceCodeDeclaration.MemberVariables, Has.Member(new AutoResetEventSourceCodeVariableDeclaration("_notEmptyEvent", false)));
     }
 
     [Test]
