@@ -1,4 +1,4 @@
-﻿using Kysect.CommonLib.DependencyInjection;
+﻿using Kysect.CommonLib.DependencyInjection.Logging;
 using Mesty.Interpreter;
 using Mesty.Interpreter.Models;
 using Mesty.SourceCodeDeclaration.Abstractions.Models;
@@ -26,8 +26,8 @@ internal class Program
         }
     }
 }";
-        var _parser = new RoslynSourceCodeClassDeclarationParser(PredefinedLogger.CreateConsoleLogger());
-        var _interpreter = new SourceCodeInterpreter(PredefinedLogger.CreateConsoleLogger());
+        var _parser = new RoslynSourceCodeClassDeclarationParser(DefaultLoggerConfiguration.CreateConsoleLogger());
+        var _interpreter = new SourceCodeInterpreter(DefaultLoggerConfiguration.CreateConsoleLogger());
 
 
         SourceCodeClassDeclaration sourceCodeDeclaration = _parser.Parse(code);
